@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This script generates a report that provides information about files on the archive server
+# This script generates a CSV file that provides information about directories
 
 
 import sys
