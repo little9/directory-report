@@ -1,9 +1,10 @@
-#!/usr/bin/evn python
+#!/usr/bin/env python
 
 # This script generates a report that provides information about files on the archive server
 
+
+import sys
 from subprocess import Popen, PIPE
-import xml.etree.ElementTree as ET
 
 def gen_directory_report(path):
     data = []
@@ -14,19 +15,15 @@ def gen_directory_report(path):
         cmd = "find '{0}' -type f | sed 's/.*\.//' | sort | uniq -c".format(i[1])
 
         p = Popen(cmd, stdout=PIPE, stderr=PIPE, bufsize=256*1024*1024, shell=True)
-       
+        
         file_count, file_info = p.communicate()
-   
+        
         data.append(i[1] + "," + i[0] + "," + file_count.replace('\n',' ').replace('\t',''))
-    
+        
     return data 
 
 
-
-
-
-
-report_data = gen_directory_report('/Users/jlittle/Music')
+report_data = gen_directory_report(sys.argv[1])
 print "Directory Name, Directory Size, Directory File Type Count"
 
 for i in report_data:
