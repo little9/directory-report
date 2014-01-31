@@ -26,7 +26,7 @@ def gen_directory_report(path):
 
 
 
-report_data = gen_directory_report('/Users/jlittle/Music')
+report_data = gen_directory_report('/')
 print "Directory Name, Directory Size, Directory File Type Count"
 
 for i in report_data:
