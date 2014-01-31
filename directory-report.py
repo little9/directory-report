@@ -22,16 +22,8 @@ def gen_directory_report(path):
         
     return data 
 
-
-<<<<<<< HEAD
 report_data = gen_directory_report(sys.argv[1])
-=======
 
-
-
-
-report_data = gen_directory_report('/')
->>>>>>> ee5819d08d074209aa37e204a968523d0e12ad4f
 print "Directory Name, Directory Size, Directory File Type Count"
 
 for i in report_data:
